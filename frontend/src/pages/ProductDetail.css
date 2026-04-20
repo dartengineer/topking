@@ -1,0 +1,269 @@
+.pdp { padding-bottom: 96px; }
+
+.pdp-breadcrumb {
+  background: var(--cream);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 48px;
+}
+.pdp-breadcrumb .container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+.pdp-breadcrumb a { color: var(--gray-600); text-decoration: none; transition: color 0.2s; }
+.pdp-breadcrumb a:hover { color: var(--gold); }
+.pdp-breadcrumb .active { color: var(--black); font-weight: 500; }
+.pdp-breadcrumb span { color: var(--gray-400); }
+
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+/* Images */
+.pdp-images {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+.pdp-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pdp-thumb {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.25s;
+}
+.pdp-thumb.active { border-color: var(--gold); }
+.pdp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.pdp-main-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--gray-100);
+}
+.pdp-main-image img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-img-animate { animation: fadeIn 0.3s ease; }
+
+/* Info */
+.pdp-info { padding-top: 8px; }
+
+.pdp-category {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.pdp-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.pdp-price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--black);
+}
+.pdp-original {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--gray-400);
+  text-decoration: line-through;
+}
+.pdp-discount-tag {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  background: rgba(192,57,43,0.1);
+  color: #c0392b;
+  border: 1px solid rgba(192,57,43,0.2);
+}
+
+.pdp-description {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.pdp-option-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 12px;
+}
+
+.pdp-colors { margin-bottom: 24px; }
+.pdp-color-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.pdp-color-tag {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--gray-800);
+  padding: 5px 12px;
+  border: 1px solid var(--gray-200);
+  background: var(--cream);
+}
+
+.pdp-sizes { margin-bottom: 28px; }
+.pdp-sizes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.selected-size {
+  color: var(--gold);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+}
+.size-guide-link {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-decoration: underline;
+}
+.pdp-size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pdp-size-btn {
+  width: 52px;
+  height: 48px;
+  border: 1.5px solid var(--gray-200);
+  background: none;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.pdp-size-btn:hover { border-color: var(--black); }
+.pdp-size-btn.active { background: var(--black); border-color: var(--black); color: var(--gold); }
+.pdp-size-error {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin-top: 8px;
+}
+
+.pdp-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.pdp-add-cart {
+  flex: 1;
+  min-width: 180px;
+  justify-content: center;
+  gap: 10px;
+}
+.pdp-add-cart.added { background: var(--gold); color: var(--black); }
+.pdp-buy-now {
+  flex: 1;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.pdp-stock-warning {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #c0392b;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: rgba(192,57,43,0.05);
+  border-left: 3px solid #c0392b;
+}
+
+.pdp-material {
+  margin-bottom: 24px;
+  padding: 18px 20px;
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+}
+.pdp-material p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.pdp-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+.pdp-perk {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+/* Related */
+.pdp-related { border-top: 1px solid var(--gray-200); padding-top: 60px; }
+.pdp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Skeleton */
+.pdp-loading { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.pdp-skeleton-img { aspect-ratio: 3/4; background: var(--gray-100); animation: shimmer 1.5s infinite; background-size: 200%; background-image: linear-gradient(90deg, var(--gray-100) 0%, var(--gray-200) 50%, var(--gray-100) 100%); }
+.pdp-skeleton-info { background: var(--gray-100); border-radius: 4px; animation: shimmer 1.5s infinite; }
+
+@media (max-width: 1024px) {
+  .pdp-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pdp-images { position: static; }
+  .pdp-related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .pdp-images { grid-template-columns: 1fr; }
+  .pdp-thumbs { flex-direction: row; }
+  .pdp-thumb { width: 64px; height: 64px; }
+  .pdp-perks { grid-template-columns: 1fr; }
+  .pdp-actions { flex-direction: column; }
+}

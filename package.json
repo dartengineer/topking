@@ -1,0 +1,11 @@
+{
+  "name": "topking-luxury",
+  "version": "1.0.0",
+  "description": "TopKing Luxury — Full-Stack eCommerce Platform",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "echo 'Run: npm run dev:backend (terminal 1) & npm run dev:frontend (terminal 2)'"
+  }
+}
