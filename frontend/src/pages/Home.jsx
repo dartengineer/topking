@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { useProducts } from '../hooks/useApi';
 import img1 from '../public/1.jpeg';
-import img2 from '../public/2.jpeg';
+import img2 from '../public/01.jpeg';
 import img3 from '../public/3.jpeg';
 import './Home.css';
 
@@ -123,7 +123,7 @@ const Home = () => {
       {/* ── Brand Story Strip ── */}
       <section className="story-strip">
         <div className="story-strip__image">
-          <img src={img2} alt="Craftsmanship" />
+          <img src={'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=700&q=80'} alt="Craftsmanship" />
         </div>
         <div className="story-strip__content">
           <div className="gold-corner tl" /><div className="gold-corner br" />
@@ -193,9 +193,9 @@ const Home = () => {
         <div className="container">
           <div className="cat-grid">
             {[
-              { label: "Men's", img: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=700&q=80', cat: 'men' },
-              { label: "Women's", img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=700&q=80', cat: 'women' },
-              { label: 'Unisex', img: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=700&q=80', cat: 'unisex' },
+              { label: "Luxury", img: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=700&q=80', cat: 'Luxury' },
+              { label: "Fitted", img: img2, cat: 'Fitted' },
+              { label: 'Unique', img: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=700&q=80', cat: 'Unique' },
             ].map((c, i) => (
               <Link key={i} to={`/shop?category=${c.cat}`} className="cat-banner">
                 <img src={c.img} alt={c.label} />

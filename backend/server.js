@@ -23,6 +23,9 @@ app.use(cors({
 
 app.use(express.json());
 
+// Serve static files from public folder
+app.use('/public', express.static('public'));
+
 // Routes
 app.use('/api/products', require('./routes/products'));
 app.use('/api/orders', require('./routes/orders'));

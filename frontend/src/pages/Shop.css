@@ -7,8 +7,20 @@
   padding: 28px 0 24px;
   border-bottom: 1px solid var(--gray-200);
   margin-bottom: 32px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
-.shop-toolbar__left { display: flex; align-items: center; gap: 20px; }
+.shop-toolbar__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.shop-toolbar__filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .shop-filter-toggle {
   display: flex;
   align-items: center;
@@ -54,21 +66,15 @@
 
 .shop-layout {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 40px;
   align-items: start;
 }
 
 /* Filters */
 .shop-filters {
-  position: sticky;
-  top: 100px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  padding: 28px;
   display: none;
 }
-.shop-filters.open { display: block; }
 
 .shop-filters__header {
   display: flex;
@@ -197,13 +203,59 @@
 .size-btn:hover { border-color: var(--gold); color: var(--gold); }
 .size-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
 
-/* Category Pills */
-.cat-pills {
+.filter-inline {
   display: flex;
+  align-items: center;
   gap: 8px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
 }
+.filter-inline label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+.price-inputs-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.price-inputs-inline input {
+  width: 80px;
+  border: 1px solid var(--gray-200);
+  padding: 6px 8px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  outline: none;
+  transition: border-color 0.25s;
+}
+.price-inputs-inline input:focus { border-color: var(--gold); }
+.price-inputs-inline span { color: var(--gray-400); font-size: 0.75rem; }
+
+.size-select {
+  border: 1px solid var(--gray-200);
+  padding: 6px 10px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--black);
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s;
+}
+.size-select:focus { border-color: var(--gold); }
+
+.filter-clear-btn {
+  background: none;
+  border: 1px solid var(--gray-300);
+  padding: 6px 12px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.filter-clear-btn:hover { border-color: var(--gold); color: var(--gold); }
+.cat-pills { display: none; }
 .cat-pill {
   padding: 8px 20px;
   border: 1.5px solid var(--gray-200);

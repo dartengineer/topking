@@ -50,7 +50,7 @@ const About = () => {
             </Link>
           </div>
           <div className="about-mission__image">
-            <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=700&q=80" alt="Artisan at work" />
+          <img src={'https://images.unsplash.com/photo-1560343090-f0409e92791a?w=700&q=80'} alt="Craftsmanship" />
             <div className="about-mission__stat">
               <span>6+</span>
               <p>Years of Excellence</p>
@@ -142,10 +142,10 @@ const About = () => {
           </p>
           <div className="artisan-grid">
             {[
-              { name: 'Emeka Okonkwo', role: 'Founder & Head Cobbler', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80' },
-              { name: 'Ngozi Adeyemi', role: 'Senior Pattern Cutter', img: 'https://images.unsplash.com/photo-1494790108755-2616b9f39e05?w=400&q=80' },
-              { name: 'Chuka Obi', role: 'Master Finisher', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80' },
-              { name: 'Amina Hassan', role: 'Head of Bespoke', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80' },
+              { name: 'Ajiboye Abraham ', role: 'Founder & Head Cobbler', img: '' },
+              { name: 'Artisan', role: 'Senior Pattern Cutter', img: '' },
+              { name: 'Artisan II', role: 'Master Finisher', img: '' },
+              { name: 'Atisan III', role: 'Head of Bespoke', img: '' },
             ].map((a, i) => (
               <div key={i} className="artisan-card">
                 <div className="artisan-card__img">
