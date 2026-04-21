@@ -14,18 +14,11 @@ const Checkout = () => {
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '',
     address: '', city: '', state: '', country: 'Nigeria', zip: '',
-    cardName: '', cardNumber: '', expiry: '', cvv: '',
-    paymentMethod: 'card',
+    paymentMethod: 'cod', // Changed to cash on delivery
     notes: '',
   });
 
   const update = (e) => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-
-  const formatCard = (val) => val.replace(/\D/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim();
-  const formatExpiry = (val) => {
-    const v = val.replace(/\D/g,'').slice(0,4);
-    return v.length > 2 ? v.slice(0,2) + '/' + v.slice(2) : v;
-  };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -174,7 +167,7 @@ const Checkout = () => {
                 <h3 className="checkout-section__title">Payment Method</h3>
                 <div className="payment-methods">
                   {[
-                    { id: 'card', label: 'Credit / Debit Card', icon: '💳' },
+                    { id: 'cod', label: 'Cash on Delivery', icon: '💵' },
                     { id: 'bank', label: 'Bank Transfer', icon: '🏦' },
                     { id: 'paystack', label: 'Paystack', icon: '🔐' },
                   ].map(m => (
@@ -185,48 +178,6 @@ const Checkout = () => {
                     </label>
                   ))}
                 </div>
-
-                {form.paymentMethod === 'card' && (
-                  <div className="card-form">
-                    <div className="form-group">
-                      <label>Cardholder Name</label>
-                      <input name="cardName" value={form.cardName} onChange={update} placeholder="As on card" />
-                    </div>
-                    <div className="form-group">
-                      <label>Card Number</label>
-                      <input
-                        name="cardNumber"
-                        value={form.cardNumber}
-                        onChange={e => setForm(f => ({...f, cardNumber: formatCard(e.target.value)}))}
-                        placeholder="1234 5678 9012 3456"
-                        maxLength={19}
-                      />
-                    </div>
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label>Expiry</label>
-                        <input
-                          name="expiry"
-                          value={form.expiry}
-                          onChange={e => setForm(f => ({...f, expiry: formatExpiry(e.target.value)}))}
-                          placeholder="MM/YY"
-                          maxLength={5}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>CVV</label>
-                        <input
-                          name="cvv"
-                          value={form.cvv}
-                          onChange={e => setForm(f => ({...f, cvv: e.target.value.replace(/\D/g,'').slice(0,4)}))}
-                          placeholder="123"
-                          maxLength={4}
-                          type="password"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
 
                 {form.paymentMethod === 'bank' && (
                   <div className="bank-details">
@@ -243,6 +194,12 @@ const Checkout = () => {
                 {form.paymentMethod === 'paystack' && (
                   <div className="paystack-note">
                     <p>You'll be redirected to Paystack's secure gateway to complete your payment.</p>
+                  </div>
+                )}
+
+                {form.paymentMethod === 'cod' && (
+                  <div className="cod-note">
+                    <p>You'll pay in cash when your order is delivered to your doorstep.</p>
                   </div>
                 )}
 

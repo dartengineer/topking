@@ -9,7 +9,7 @@ import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
-  const { products, loading } = useProducts({});
+  const { products, loading, error } = useProducts({});
   const featured = products.filter(p => p.featured).slice(0, 4);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
@@ -102,7 +102,11 @@ const Home = () => {
             </div>
             <Link to="/shop" className="btn-outline featured-view-all">View All Pieces</Link>
           </div>
-          {loading ? (
+          {error ? (
+            <div style={{textAlign: 'center', padding: '40px'}}>
+              <p>Error loading products: {error}</p>
+            </div>
+          ) : loading ? (
             <div className="featured-loading">
               {[1,2,3,4].map(i => <div key={i} className="skeleton-card" />)}
             </div>

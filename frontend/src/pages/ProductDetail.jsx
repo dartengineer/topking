@@ -8,7 +8,7 @@ import './ProductDetail.css';
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { product, loading } = useProduct(id);
+  const { product, loading, error } = useProduct(id);
   const { products } = useProducts({});
   const { addItem, toggleCart } = useCart();
 
@@ -31,6 +31,13 @@ const ProductDetail = () => {
     addItem(product, selectedSize);
     navigate('/checkout');
   };
+
+  if (error) return (
+    <div style={{padding:'120px 0', textAlign:'center'}}>
+      <p style={{fontFamily:'var(--font-serif)', fontSize:'1.5rem', color:'var(--gray-600)'}}>Error loading product: {error}</p>
+      <Link to="/shop" className="btn-primary" style={{marginTop:24, display:'inline-flex'}}>Back to Shop</Link>
+    </div>
+  );
 
   if (loading) return (
     <div style={{padding:'160px 0', textAlign:'center'}}>

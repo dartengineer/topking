@@ -11,6 +11,35 @@ import Checkout from './pages/Checkout';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
+// Error Boundary Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('React Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '50px', textAlign: 'center' }}>
+          <h1>Something went wrong</h1>
+          <p>Please refresh the page or contact support.</p>
+          <button onClick={() => window.location.reload()}>Refresh Page</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -46,20 +75,22 @@ const Layout = ({ children }) => (
 
 const App = () => {
   return (
-    <Router>
-      <CartProvider>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/shop" element={<Layout><Shop /></Layout>} />
-          <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
-          <Route path="/cart" element={<Layout><CartPage /></Layout>} />
-          <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
-          <Route path="/about" element={<Layout><About /></Layout>} />
-          <Route path="/contact" element={<Layout><Contact /></Layout>} />
-        </Routes>
-      </CartProvider>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <CartProvider>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/shop" element={<Layout><Shop /></Layout>} />
+            <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
+            <Route path="/cart" element={<Layout><CartPage /></Layout>} />
+            <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
+            <Route path="/about" element={<Layout><About /></Layout>} />
+            <Route path="/contact" element={<Layout><Contact /></Layout>} />
+          </Routes>
+        </CartProvider>
+      </Router>
+    </ErrorBoundary>
   );
 };
 

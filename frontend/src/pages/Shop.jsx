@@ -15,7 +15,7 @@ const Shop = () => {
     size: '',
   });
   const [sortBy, setSortBy] = useState('default');
-  const { products, loading } = useProducts(filters);
+  const { products, loading, error } = useProducts(filters);
 
   const sorted = [...products].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price;
@@ -116,7 +116,11 @@ const Shop = () => {
           {/* Grid */}
           <main className="shop-grid-wrap">
 
-            {loading ? (
+            {error ? (
+              <div style={{textAlign: 'center', padding: '40px'}}>
+                <p>Error loading products: {error}</p>
+              </div>
+            ) : loading ? (
               <div className="shop-grid">
                 {[...Array(6)].map((_, i) => <div key={i} className="skeleton-card" />)}
               </div>
