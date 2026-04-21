@@ -4,7 +4,16 @@ let products = require('../data/products');
 
 // Helper function to convert relative image URLs to absolute URLs
 const resolveImageUrls = (product, req) => {
-  const baseUrl = process.env.PUBLIC_URL || `${req.protocol}://${req.get('host')}`;
+  let baseUrl = process.env.PUBLIC_URL;
+  
+  if (!baseUrl) {
+    // Construct from request if PUBLIC_URL not set
+    // With trust proxy enabled, this should work correctly
+    const protocol = req.protocol || 'https';
+    const host = req.get('host') || req.hostname;
+    baseUrl = `${protocol}://${host}`;
+  }
+  
   return {
     ...product,
     images: product.images.map(img => 
@@ -12,6 +21,7 @@ const resolveImageUrls = (product, req) => {
     )
   };
 };
+
 
 // GET all products (with optional filters)
 router.get('/', (req, res) => {

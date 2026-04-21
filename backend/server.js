@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// Trust proxy - important for getting correct protocol/host when behind reverse proxy (Render, etc)
+app.set('trust proxy', 1);
+
 // Allow requests from your Vercel frontend URL + local dev
 const allowedOrigins = [
   'http://localhost:3000',
