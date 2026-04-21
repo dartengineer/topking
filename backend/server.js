@@ -29,21 +29,32 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Allow requests from your Vercel frontend URL + local dev
-const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : [
-  'http://localhost:3000',
-  'http://localhost:5173',
-];
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(url => url.trim()).filter(Boolean)
+  : [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://localhost:3002',
+      'http://localhost:3003',
+      'http://localhost:5173',
+    ];
+
+if (process.env.NODE_ENV === 'production') {
+  console.log(`👑 Production mode: Allowed CORS origins: ${allowedOrigins.join(', ')}`);
+}
 
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (mobile apps, curl, Render health checks)
-    if (!origin || allowedOrigins.includes(origin.trim())) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`CORS Error: Origin ${origin} not in allowed list. Allowed: ${allowedOrigins.join(', ')}`);
       callback(new Error(`CORS blocked: ${origin}`));
     }
   },
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 
 app.use(express.json());
