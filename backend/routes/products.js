@@ -2,6 +2,17 @@ const express = require('express');
 const router = express.Router();
 let products = require('../data/products');
 
+// Helper function to convert relative image URLs to absolute URLs
+const resolveImageUrls = (product, req) => {
+  const baseUrl = process.env.PUBLIC_URL || `${req.protocol}://${req.get('host')}`;
+  return {
+    ...product,
+    images: product.images.map(img => 
+      img.startsWith('http') ? img : `${baseUrl}${img}`
+    )
+  };
+};
+
 // GET all products (with optional filters)
 router.get('/', (req, res) => {
   let filtered = [...products];
@@ -20,20 +31,23 @@ router.get('/', (req, res) => {
     filtered = filtered.filter(p => p.sizes.includes(parseInt(size)));
   }
 
-  res.json({ success: true, count: filtered.length, data: filtered });
+  const withResolvedUrls = filtered.map(p => resolveImageUrls(p, req));
+  res.json({ success: true, count: withResolvedUrls.length, data: withResolvedUrls });
 });
 
 // GET featured products
 router.get('/featured', (req, res) => {
   const featured = products.filter(p => p.featured);
-  res.json({ success: true, data: featured });
+  const withResolvedUrls = featured.map(p => resolveImageUrls(p, req));
+  res.json({ success: true, data: withResolvedUrls });
 });
 
 // GET single product
 router.get('/:id', (req, res) => {
   const product = products.find(p => p.id === req.params.id);
   if (!product) return res.status(404).json({ success: false, message: 'Product not found' });
-  res.json({ success: true, data: product });
+  const withResolvedUrl = resolveImageUrls(product, req);
+  res.json({ success: true, data: withResolvedUrl });
 });
 
 // POST create product (admin)
