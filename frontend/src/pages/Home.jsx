@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { useProducts } from '../hooks/useApi';
-import img1 from '../public/1.jpeg';
-import img2 from '../public/01.jpeg';
-import img3 from '../public/3.jpeg';
+import img1 from '../public/01-all.png';
+import img2 from '../public/010-tan.png';
+import img3 from '../public/010-black.jpeg';
 import './Home.css';
 
 const Home = () => {

@@ -9,14 +9,14 @@ const products = [
     material: "Full-grain Italian calf leather, leather sole, brass eyelets",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     images: [
-      "/public/1.jpeg",
-      "/public/2.jpeg",
-      "/public/3.jpeg"
+      "/public/06-black.png",
+      "/public/06-brown.png",
+      "/public/06-tan.jpeg",
     ],
     featured: true,
     stock: 12,
     badge: "Bestseller",
-    colors: ["Black", "Dark Brown", "Cognac"]
+    colors: ["Black", "Dark Brown", "Tan"]
   },
   {
     id: "2",
@@ -27,15 +27,15 @@ const products = [
     description: "The Sovereign Derby embodies restrained elegance. Hand-lasted on a classic English last, these shoes feature a double leather sole and a hand-burnished finish that deepens with age and wear.",
     material: "Boxcalf leather, double leather sole, hand-welted construction",
     sizes: [40, 41, 42, 43, 44, 45],
-    images: [
-      "/public/2.jpeg",
-      "/public/3.jpeg",
-      "/public/1.jpeg"
+   images: [
+      "/public/02-black.jpeg",
+      "/public/02-brown.png",
+      "/public/02-green.png",
     ],
     featured: true,
     stock: 8,
     badge: "New",
-    colors: ["Mahogany", "Navy", "Black"]
+    colors: ["Tan", "Green", "Black"]
   },
   {
     id: "3",
@@ -47,14 +47,14 @@ const products = [
     material: "Suede upper, kid leather lining, hand-stitched moccasin seam, crepe sole",
     sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
     images: [
-      "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+      "/public/03-black.png",
+      "/public/03-chocolate.png",
+      "/public/03-all.png"
     ],
     featured: true,
     stock: 15,
     badge: "Sale",
-    colors: ["Tan", "Burgundy", "Forest Green"]
+    colors: ["Tan", "Black", "Brown"]
   },
   {
     id: "4",
@@ -66,14 +66,14 @@ const products = [
     material: "Patent leather, wooden stacked heel, leather insole, rubber tip",
     sizes: [40, 41, 42, 43, 44, 45],
     images: [
-      "/public/1.jpeg",
-      "/public/2.jpeg",
-      "/public/3.jpeg"
+      "/public/04-black.png",
+      "/public/04-chocolate.png",
+      "/public/04-grey.jpg"
     ],
     featured: true,
     stock: 10,
     badge: "Exclusive",
-    colors: ["Noir", "Ivory", "Scarlet"]
+    colors: ["Black", "Chocolate", "Grey"]
   },
   {
     id: "5",
@@ -85,14 +85,13 @@ const products = [
     material: "Grain leather, Goodyear welt construction, leather sole, brass tacks",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     images: [
-       "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+       "/public/05-black.png",
+      "/public/05-brown.jpeg",
     ],
     featured: false,
     stock: 6,
     badge: null,
-    colors: ["Tan", "Antique Brown"]
+    colors: ["Black", "Antique Brown"]
   },
   {
     id: "6",
@@ -104,14 +103,15 @@ const products = [
     material: "Calf leather, elastic gusset, leather lining, Cuban heel, rubber sole",
     sizes: [40, 41, 42, 43, 44, 45],
     images: [
-      "/public/2.jpeg",
-      "/public/3.jpeg",
-      "/public/1.jpeg"
+       "/public/01-black.png",
+      "/public/01-brown.jpg",
+      "/public/01-chocolate.png",
+      "/public/01-all.png"
     ],
     featured: false,
     stock: 9,
     badge: "Sale",
-    colors: ["Black", "Cognac"]
+    colors: ["Black", "Tan", "Cognac"]
   },
   {
     id: "7",
@@ -123,14 +123,13 @@ const products = [
     material: "Crushed velvet, hand-embroidered detail, sculpted leather heel",
     sizes: [40, 41, 42, 43, 44, 45],
     images: [
-      "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+      "/public/07-black.png",
+      "/public/07-brown.jpeg",
     ],
     featured: false,
     stock: 14,
     badge: "New",
-    colors: ["Midnight Blue", "Emerald", "Champagne"]
+    colors: ["Black", "Brown",]
   },
   {
     id: "8",
@@ -142,14 +141,14 @@ const products = [
     material: "Hand-cut full-grain leather, vulcanized rubber sole, cotton laces",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     images: [
-      "/public/1.jpeg",
-      "/public/2.jpeg",
-      "/public/3.jpeg"
+      "/public/012-green.png",
+      "/public/012-brown.jpeg",
+      "/public/012-tan.png",
     ],
     featured: false,
     stock: 20,
     badge: null,
-    colors: ["White/Gold", "Triple Black", "Cream/Tan"]
+    colors: ["Green", "Dark Brown", "Tan"]
   }, 
   {
     id: "9",
@@ -161,14 +160,14 @@ const products = [
     material: "Grain leather, Goodyear welt construction, leather sole, brass tacks",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     images: [
-      "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+      "/public/08-green.png",
+      "/public/08-brown.png",
+      "/public/08-tan.jpeg",
     ],
     featured: false,
     stock: 6,
     badge: null,
-    colors: ["Tan", "Antique Brown"]
+    colors: ["Tan", "Green", "Antique Brown"]
   },
   {
     id: "10",
@@ -180,14 +179,14 @@ const products = [
     material: "Calf leather, elastic gusset, leather lining, Cuban heel, rubber sole",
     sizes: [40, 41, 42, 43, 44, 45],
     images: [
-      "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+      "/public/010-black.jpeg",
+      "/public/010-tan.png",
+      "/public/010-chocolate.png"
     ],
     featured: false,
     stock: 9,
     badge: "Sale",
-    colors: ["Black", "Cognac"]
+    colors: ["Black", "Tan", "Cognac"]
   },
   {
     id: "11",
@@ -199,14 +198,14 @@ const products = [
     material: "Crushed velvet, hand-embroidered detail, sculpted leather heel",
     sizes: [40, 41, 42, 43, 44, 45],
     images: [
-      "/public/2.jpeg",
-      "/public/3.jpeg",
-      "/public/1.jpeg"
+      "/public/011-black.png",
+      "/public/011-tan.jpg",
+      "/public/011-chocolate.png"
     ],
     featured: false,
     stock: 14,
     badge: "New",
-    colors: ["Midnight Blue", "Emerald", "Champagne"]
+    colors: ["Dark Brown", "Black", "Tan"]
   },
   {
     id: "12",
@@ -218,14 +217,14 @@ const products = [
     material: "Hand-cut full-grain leather, vulcanized rubber sole, cotton laces",
     sizes: [40, 41, 42, 43, 44, 45, 46],
     images: [
-      "/public/3.jpeg",
-      "/public/1.jpeg",
-      "/public/2.jpeg"
+      "/public/09-black.jpeg",
+      "/public/09-brown.png",
+      "/public/09-green.png"
     ],
     featured: false,
     stock: 20,
     badge: null,
-    colors: ["White/Gold", "Triple Black", "Cream/Tan"]
+    colors: ["Forest Green", "Triple Black", "Tan"]
   }
 ];
 

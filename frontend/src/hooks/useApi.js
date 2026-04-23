@@ -11,6 +11,7 @@ export const useProducts = (filters = {}) => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
+        setError(null);
         const params = new URLSearchParams();
         if (filters.category && filters.category !== 'all') params.set('category', filters.category);
         if (filters.minPrice) params.set('minPrice', filters.minPrice);
@@ -19,11 +20,13 @@ export const useProducts = (filters = {}) => {
 
         const url = `${API_BASE}/products${params.toString() ? '?' + params.toString() : ''}`;
         const res = await fetch(url);
-        if (!res.ok) throw new Error('Failed to fetch');
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
         const data = await res.json();
         setProducts(data.data);
       } catch (err) {
-        setError(err.message);
+        console.error('Failed to load products:', err);
+        setProducts([]);
+        setError(err.message || 'Unable to load products');
       } finally {
         setLoading(false);
       }
@@ -46,11 +49,13 @@ export const useProduct = (id) => {
         setLoading(true);
         setError(null);
         const res = await fetch(`${API_BASE}/products/${id}`);
-        if (!res.ok) throw new Error('Not found');
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
         const data = await res.json();
         setProduct(data.data);
       } catch (err) {
-        setError(err.message);
+        console.error('Failed to load product:', err);
+        setProduct(null);
+        setError(err.message || 'Unable to load product');
       } finally {
         setLoading(false);
       }
